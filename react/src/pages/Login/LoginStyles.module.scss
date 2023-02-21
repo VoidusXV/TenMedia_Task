@@ -1,0 +1,19 @@
+.MainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.FormContainer {
+    width: 35%;
+    color: white;
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.LoginText {
+    all: unset;
+    font-size: 25px;
+}

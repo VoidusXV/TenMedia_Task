@@ -3,6 +3,7 @@ import styles from "./AppStyles.module.scss";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Login from "./pages/Login/Login";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
     return (

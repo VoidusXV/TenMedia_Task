@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./NavigationBar.module.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +9,7 @@ const NavigationBar = () => {
     return (
         <Navbar variant="dark" style={{ backgroundColor: "#141722" }}>
             <Container>
-                <Navbar.Brand href="/">Stellenanzeige</Navbar.Brand>
+                <Navbar.Brand href="/">TenMedia Task</Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
                     <Button
                         onClick={() => navigate("/login")}
