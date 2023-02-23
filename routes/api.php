@@ -10,8 +10,8 @@ Route::group(
     ['prefix' => 'v1'],
     function () {
         Route::apiResource('users', UserController::class);
-        // Route::apiResource('companies', CompanyController::class);
-        //  Route::apiResource('jobs', JobController::class);
-    
+        Route::apiResource('companies', CompanyController::class);
+        Route::apiResource('jobs', JobController::class);
+
     }
 );

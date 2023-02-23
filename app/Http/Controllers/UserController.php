@@ -15,7 +15,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $response = response()->json("Test");
         return response()->json("User Index");
     }
 
@@ -25,7 +24,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         User::create($request->validated());
-        return response()->json("User store");
+        return response()->json("User created");
 
     }
 }
