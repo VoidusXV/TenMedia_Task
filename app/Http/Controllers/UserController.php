@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
+use App\Models\Company;
+use App\Helpers\DatabaseHelper;
 
 class UserController extends Controller
 {
@@ -23,6 +22,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
+        if (!DatabaseHelper::companyExists($request))
+            return response()->json("Company doesnt exist", 422);
+
         User::create($request->validated());
         return response()->json("User created");
 

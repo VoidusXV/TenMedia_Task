@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +21,22 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/hello', function () {
     return "test";
+});
+
+Route::post('/login', function (Request $request) {
+
+    $credentials = $request->only('email', 'password');
+
+
+    //echo $credentials;
+    //dd($credentials);
+
+    if (Auth::attempt($credentials)) {
+        // $user = Auth::user();
+        //return response()->json(['success' => true, 'user' => $user]);
+        return response()->json(['success' => true]);
+
+    } else {
+        return response()->json(['success' => false, 'message' => 'Invalid credentials']);
+    }
 });
