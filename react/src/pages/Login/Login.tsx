@@ -16,10 +16,10 @@ const Login = () => {
     const handleLogin = async (event: any) => {
         event.preventDefault();
         try {
-            const payload = JSON.stringify({
+            const payload = {
                 email: getEmail,
                 password: getPassword,
-            });
+            };
 
             const response = await axios.post(
                 "http://localhost:8000/login",

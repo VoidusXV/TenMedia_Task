@@ -26,15 +26,9 @@ Route::get('/hello', function () {
 Route::post('/login', function (Request $request) {
 
     $credentials = $request->only('email', 'password');
-
-
-    //echo $credentials;
-    //dd($credentials);
-
-    if (Auth::attempt($credentials)) {
-        // $user = Auth::user();
-        //return response()->json(['success' => true, 'user' => $user]);
-        return response()->json(['success' => true]);
+    if (Auth::attempt($credentials, true)) {
+        $user = Auth::user();
+        return response()->json(['success' => true, 'user' => $user]);
 
     } else {
         return response()->json(['success' => false, 'message' => 'Invalid credentials']);
