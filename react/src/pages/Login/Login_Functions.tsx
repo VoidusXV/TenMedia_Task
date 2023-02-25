@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Cookies } from "react-cookie";
 import api from "../../backend/axios";
-import { IUserData } from "../../components/constants/auth";
+import { IUserData } from "../../constants/Global_Interfaces";
 
 const cookies = new Cookies();
 

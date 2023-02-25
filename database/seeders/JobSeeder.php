@@ -16,7 +16,7 @@ class JobSeeder extends Seeder
         Job::create([
             "jobID" => 0,
             "companyID" => 1,
-            "title" => "CompanyAddress",
+            "title" => "JobTitle",
             "salary" => "123456789",
             "description" => "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam nonumy eirmod tempor invidunt ut labore et dolore magna

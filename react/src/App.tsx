@@ -6,7 +6,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { onLogin } from "./pages/Login/Login_Functions";
-import { AuthContext } from "./components/constants/auth";
+import { AuthContext } from "./constants/auth";
 
 function App() {
     // console.log("Launch Website");

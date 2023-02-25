@@ -1,12 +1,28 @@
 import React from "react";
-import { JobAd_Box } from "../../../pages/Dashboard/Dashboard_Designs";
-import styles from "./ListView.module.scss";
+import { ICompany, IJob, Modells } from "../../../constants/Global_Interfaces";
+import { onFetchModell } from "../../../hooks/FetchHooks";
+import JobView from "../ModellsView/Job/JobView";
+import CompanyView from "../ModellsView/Company/CompanyView";
 
-const ListView = () => {
+const ListView = ({ SelectedModell }: { SelectedModell: number }) => {
+    const FetchedData: Array<ICompany> = onFetchModell(1); //SelectedModell
+    console.log(SelectedModell, FetchedData);
     return (
         <>
-            <JobAd_Box></JobAd_Box>
-            <JobAd_Box></JobAd_Box>
+            {FetchedData.map((e, i) => (
+                <CompanyView
+                    name={e.name}
+                    address={e.address}
+                    email={e.email}
+                    phoneNumber={e.phoneNumber}
+                    key={i}
+                ></CompanyView>
+                // <JobView
+                //     key={i}
+                //     Title={e.title}
+                //     Description={e.description}
+                // ></JobView>
+            ))}
         </>
     );
 };

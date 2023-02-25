@@ -40,38 +40,3 @@
     font-weight: 500;
     margin-bottom: 20px;
 }
-
-.JobAd_BoxContainer {
-    // width: 40%;
-    height: 200px;
-    padding: 10px 15px;
-    background-color: #1e2334;
-    border-radius: 5px;
-    transition: border-color 100ms linear;
-    border-style: solid;
-    border-color: #1e2334;
-    cursor: pointer;
-    user-select: none;
-}
-
-.JobAd_BoxContainer:hover {
-    border-color: #282e45;
-}
-
-.JobAd_BoxTitle {
-    color: rgb(214, 214, 214);
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.JobAd_BoxDesc {
-    color: rgb(214, 214, 214);
-    font-weight: 500;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-}
