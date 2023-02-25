@@ -34,6 +34,10 @@ function App() {
                                 path="/manage-jobad"
                                 element={<LoginPage />}
                             ></Route>
+                            <Route
+                                path="/detail-jobad"
+                                element={<LoginPage />}
+                            ></Route>
                         </Routes>
                     </div>
                 </>

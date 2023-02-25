@@ -29,6 +29,12 @@ interface IUserData {
     remember_token?: string;
 }
 
+interface IModells {
+    Job: IJob;
+    Company: ICompany;
+    UserData: IUserData;
+}
+
 enum ViewStyles {
     Undefined,
     ListView,
@@ -41,4 +47,4 @@ enum Modells {
 }
 
 export { ViewStyles, Modells };
-export type { IJob, ICompany, IUserData };
+export type { IJob, ICompany, IUserData, IModells };

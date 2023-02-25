@@ -9,7 +9,7 @@ interface ICompanyView {
 const CompanyView = ({ name, address, phoneNumber, email }: ICompanyView) => {
     return (
         <div className={styles.CompanyView_BoxContainer}>
-            <b className={styles.CompanyView_BoxTitle}>Firma: {name}</b>
+            <b className={styles.CompanyView_BoxTitle}>Companyname: {name}</b>
             <b className={styles.CompanyView_BoxDesc}>Addresse: {address}</b>
             <b className={styles.CompanyView_BoxDesc}>
                 Phone Number: {phoneNumber}

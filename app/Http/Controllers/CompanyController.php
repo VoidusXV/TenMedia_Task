@@ -18,6 +18,10 @@ class CompanyController extends Controller
         return Company::all();
 
     }
+    public function show(Company $Company)
+    {
+        return $Company;
+    }
 
     /**
      * Store a newly created resource in storage.
