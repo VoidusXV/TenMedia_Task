@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-    ICompany,
-    IJob,
-    IModells,
-    IUserData,
-    Modells,
-} from "../../../constants/Global_Interfaces";
+import { Modells } from "../../../constants/Global_Interfaces";
 import { onFetchModell } from "../../../hooks/FetchHooks";
 import JobView from "../ModellsView/Job/JobView";
 import CompanyView from "../ModellsView/Company/CompanyView";
@@ -78,7 +72,12 @@ const ListView = ({ SelectedModell }: { SelectedModell: number }) => {
                     SelectedModell={SelectedModell}
                     onClick={(event: any, modelldata: any) => {
                         // console.log(modelldata);
-                        navigate("/details-view");
+                        navigate("/details-view", {
+                            state: {
+                                SelectedModell: SelectedModell,
+                                ModellData: modelldata,
+                            },
+                        });
                     }}
                 ></SelectedListModellView>
             )}

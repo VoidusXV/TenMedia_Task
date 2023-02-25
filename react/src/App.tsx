@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { onLogin } from "./pages/Login/Login_Functions";
 import { AuthContext } from "./constants/auth";
-import DetailsView from "./components/views/CreateEditView/CreateEditView";
+import DetailsView from "./components/views/DetailsView/DetailsView";
 
 function App() {
     // console.log("Launch Website");

@@ -1,4 +1,4 @@
-const DetailsView = () => {
+const CreateEditView = () => {
     return (
         <div>
             <a>Listdiv</a>
@@ -6,4 +6,4 @@ const DetailsView = () => {
     );
 };
 
-export default DetailsView;
+export default CreateEditView;
