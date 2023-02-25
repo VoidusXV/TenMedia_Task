@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./NavigationBar.module.scss";
 import { Navbar, Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { AuthContext, IUser } from "../../constants/auth";
+import { AuthContext, IUser } from "../constants/auth";
 import { AiFillEdit } from "react-icons/Ai";
 import { isLogged } from "../../pages/Login/Login_Functions";
 
@@ -42,10 +42,6 @@ const NavigationBar = () => {
                             >
                                 {UserData.UserData?.surname}
                             </a>
-                            <AiFillEdit
-                                style={{ marginLeft: 20 }}
-                                size={25}
-                            ></AiFillEdit>
                         </Navbar.Text>
                     )}
                 </Navbar.Collapse>

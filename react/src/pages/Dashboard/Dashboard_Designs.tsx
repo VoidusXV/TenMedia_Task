@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { backgroundColor } from "../../constants/Colors";
+import { backgroundColor } from "../../components/constants/Colors";
 import styles from "./Dashboard.module.scss";
 import { IJobAd_Box } from "./Dashboard_Interfaces";
 

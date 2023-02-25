@@ -19,6 +19,12 @@
     margin-top: 20px;
     border-radius: 10px;
 }
+.JobAd_ViewContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+    @extend .ContainerStyle;
+}
 
 .TopContainer {
     @extend .ContainerStyle;
@@ -33,12 +39,6 @@
     font-size: 25px;
     font-weight: 500;
     margin-bottom: 20px;
-}
-.JobAd_ListContainer {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 1rem;
-    @extend .ContainerStyle;
 }
 
 .JobAd_BoxContainer {

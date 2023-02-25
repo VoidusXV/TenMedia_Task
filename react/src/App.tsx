@@ -6,7 +6,7 @@ import LoginPage from "./pages/Login/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { onLogin } from "./pages/Login/Login_Functions";
-import { AuthContext } from "./constants/auth";
+import { AuthContext } from "./components/constants/auth";
 
 function App() {
     // console.log("Launch Website");
@@ -31,11 +31,7 @@ function App() {
                                 element={<LoginPage />}
                             ></Route>
                             <Route
-                                path="/create-jobad"
-                                element={<LoginPage />}
-                            ></Route>
-                            <Route
-                                path="/edit-jobad"
+                                path="/manage-jobad"
                                 element={<LoginPage />}
                             ></Route>
                         </Routes>

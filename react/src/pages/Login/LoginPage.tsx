@@ -3,7 +3,7 @@ import styles from "./LoginStyles.module.scss";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { NavTopColor } from "../../constants/Colors";
+import { NavTopColor } from "../../components/constants/Colors";
 import api from "../../backend/axios";
 import { Login } from "./Login_Functions";
 
