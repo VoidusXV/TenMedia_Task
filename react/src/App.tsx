@@ -2,21 +2,47 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import styles from "./AppStyles.module.scss";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Login from "./pages/Login/Login";
+import LoginPage from "./pages/Login/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
+import { onLogin } from "./pages/Login/Login_Functions";
+import { AuthContext } from "./constants/auth";
 
 function App() {
-    return (
-        <div className={styles.MainContainer}>
-            <NavigationBar></NavigationBar>
+    // console.log("Launch Website");
 
-            <Routes>
-                <Route path="/" element={<Dashboard />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/create-jobad" element={<Login />}></Route>
-                <Route path="/edit-jobad" element={<Login />}></Route>
-            </Routes>
-        </div>
+    const [isLoading, setLoading] = useState(true);
+    const getAuthState = onLogin(
+        () => setLoading(true),
+        () => setLoading(false)
+    );
+
+    return (
+        <AuthContext.Provider value={getAuthState}>
+            {!isLoading && (
+                <>
+                    <div className={styles.MainContainer}>
+                        <NavigationBar></NavigationBar>
+
+                        <Routes>
+                            <Route path="/" element={<Dashboard />}></Route>
+                            <Route
+                                path="/login"
+                                element={<LoginPage />}
+                            ></Route>
+                            <Route
+                                path="/create-jobad"
+                                element={<LoginPage />}
+                            ></Route>
+                            <Route
+                                path="/edit-jobad"
+                                element={<LoginPage />}
+                            ></Route>
+                        </Routes>
+                    </div>
+                </>
+            )}
+        </AuthContext.Provider>
     );
 }
 

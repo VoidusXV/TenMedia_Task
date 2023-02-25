@@ -4,13 +4,11 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { NavTopColor } from "../../constants/Colors";
-import axios from "axios";
-import { UserData } from "../../constants/auth";
 import api from "../../backend/axios";
+import { Login } from "./Login_Functions";
 
-const Login = () => {
+const LoginPage = () => {
     const navigate = useNavigate();
-
     const [getEmail, setEmail] = useState("");
     const [getPassword, setPassword] = useState("");
 
@@ -22,23 +20,16 @@ const Login = () => {
                 password: getPassword,
             };
 
-            // UserData.isLogged = true;
-            // UserData.UserData = response?.data?.user;
-
-            // navigate("/");
-
-            await api
-                .get("/sanctum/csrf-cookie")
-                .then(async () => {
-                    await api.post("/login", payload);
-                })
-                .then((response) => {
-                    console.log(response);
-                });
+            await api.get("/sanctum/csrf-cookie");
+            const response = await api.post("/login", payload);
+            if (response.data.success)
+                Login(response?.data?.user, () => navigate("/"));
+            else console.log("Error:", response);
         } catch (e: any) {
             console.log("Error:", e);
         }
     };
+
     return (
         <div className={styles.MainContainer}>
             <div
@@ -115,4 +106,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

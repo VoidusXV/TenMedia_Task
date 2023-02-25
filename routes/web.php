@@ -23,15 +23,36 @@ Route::get('/hello', function () {
     return "test";
 });
 
-// [AuthController::class]
 Route::post("/login", function (Request $request) {
-    $credentials = $request->only('email', 'password');
 
-    if (Auth::guard()->attempt($credentials)) {
+    //"remember_token": "5883b61c-046c-4320-a711-365d48b08582"
+    //"email": "email@test1.com",
+    //"password": "passwordTest"
+
+    $email = $request["email"] ?? null;
+    $password = $request["password"] ?? null;
+    $credentials_login = $email != null && $password != null && Auth::guard()->attempt($request->only("email", "password"));
+
+    if ($credentials_login) {
         $request->session()->regenerate();
-        return response()->json(['success' => true]);
+        $user = Auth::User();
+        return response()->json(['success' => true, 'user' => $user]);
 
     }
     return response()->json(['success' => false, 'message' => 'Invalid credentials']);
 
+});
+
+Route::post("/getUserByUuid", function (Request $request) {
+
+    $token = $request["remember_token"] ?? null;
+    $UserAuth = User::where('remember_token', $token)->first();
+    // $token_auth = $UserAuth != null && Auth::loginUsingId($UserAuth->userID);
+
+    if ($UserAuth) {
+        //$user = Auth::User();
+        return response()->json(['success' => true, 'user' => $UserAuth]);
+
+    }
+    return response()->json(['success' => false, 'message' => 'Invalid credentials']);
 });

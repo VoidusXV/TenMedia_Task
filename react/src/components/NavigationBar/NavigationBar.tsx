@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./NavigationBar.module.scss";
 import { Navbar, Container, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { UserData } from "../../constants/auth";
+import { AuthContext, IUser } from "../../constants/auth";
 import { AiFillEdit } from "react-icons/Ai";
+import { isLogged } from "../../pages/Login/Login_Functions";
 
 const NavigationBar = () => {
     const navigate = useNavigate();
-    console.log(UserData.isLogged);
+    const UserData: IUser = useContext(AuthContext);
 
     return (
         <Navbar variant="dark" style={{ backgroundColor: "#141722" }}>
             <Container>
                 <Navbar.Brand href="/">TenMedia Task</Navbar.Brand>
                 <Navbar.Collapse className="justify-content-end">
-                    {!UserData.isLogged ? (
+                    {!UserData.isLoggedIn ? (
                         <Button
                             onClick={() => navigate("/login")}
                             style={{
@@ -39,7 +40,7 @@ const NavigationBar = () => {
                                     cursor: "pointer",
                                 }}
                             >
-                                {UserData.UserData.surname}
+                                {UserData.UserData?.surname}
                             </a>
                             <AiFillEdit
                                 style={{ marginLeft: 20 }}

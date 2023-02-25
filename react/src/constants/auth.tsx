@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 declare type ISODateString = Date;
 
 interface IUserData {
@@ -13,9 +15,15 @@ interface IUserData {
 }
 
 interface IUser {
-    isLogged: Boolean;
-    UserData: IUserData;
+    isLoggedIn?: Boolean;
+    UserData?: IUserData | null;
 }
+//const UserData: IUser = { Data: undefined };
 
-const UserData: IUser = { isLogged: false, UserData: {} };
-export { UserData };
+const AuthContext = createContext({
+    isLoggedIn: false,
+    UserData: null,
+});
+
+export { AuthContext };
+export type { IUserData, IUser };

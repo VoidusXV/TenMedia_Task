@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -19,7 +20,8 @@ class UserSeeder extends Seeder
             "firstname" => "firstnameTest",
             "surname" => "surnameTest",
             "email" => "email@test1.com",
-            "password" => Hash::make("passwordTest")
+            "password" => Hash::make("passwordTest"),
+            "remember_token" => Str::uuid(),
         ]);
     }
 }
