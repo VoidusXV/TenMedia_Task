@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { NavTopColor } from "../../constants/Colors";
 import axios from "axios";
-//import axios from "../../backend/axios";
+import { UserData } from "../../constants/auth";
+import api from "../../backend/axios";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -21,12 +22,19 @@ const Login = () => {
                 password: getPassword,
             };
 
-            const response = await axios.post(
-                "http://localhost:8000/login",
-                payload
-            );
+            // UserData.isLogged = true;
+            // UserData.UserData = response?.data?.user;
 
-            console.log("Resp:", response.data);
+            // navigate("/");
+
+            await api
+                .get("/sanctum/csrf-cookie")
+                .then(async () => {
+                    await api.post("/login", payload);
+                })
+                .then((response) => {
+                    console.log(response);
+                });
         } catch (e: any) {
             console.log("Error:", e);
         }
@@ -62,7 +70,7 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control
-                            type="password"
+                            // type="password"
                             placeholder="Password"
                             value={getPassword}
                             onChange={(e) => setPassword(e.target.value)}
@@ -91,10 +99,16 @@ const Login = () => {
                         marginBottom: 20,
                     }}
                 >
-                    <a>
-                        <a>Don't have an account? </a>
-                        <a href="/">Sign Up</a>
-                    </a>
+                    <>
+                        <a>Don't have an account?</a>
+                        <a
+                            onClick={() => {
+                                alert("Not yet implemented");
+                            }}
+                        >
+                            Sign Up
+                        </a>
+                    </>
                 </div>
             </div>
         </div>

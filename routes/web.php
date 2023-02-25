@@ -23,14 +23,15 @@ Route::get('/hello', function () {
     return "test";
 });
 
-Route::post('/login', function (Request $request) {
-
+// [AuthController::class]
+Route::post("/login", function (Request $request) {
     $credentials = $request->only('email', 'password');
-    if (Auth::attempt($credentials, true)) {
-        $user = Auth::user();
-        return response()->json(['success' => true, 'user' => $user]);
 
-    } else {
-        return response()->json(['success' => false, 'message' => 'Invalid credentials']);
+    if (Auth::guard()->attempt($credentials)) {
+        $request->session()->regenerate();
+        return response()->json(['success' => true]);
+
     }
+    return response()->json(['success' => false, 'message' => 'Invalid credentials']);
+
 });

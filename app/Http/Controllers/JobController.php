@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\DatabaseHelper;
-use App\Models\Company;
 use App\Models\Job;
 use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 
 class JobController extends Controller
 {
@@ -17,10 +13,13 @@ class JobController extends Controller
      */
     public function index()
     {
-        return response()->json("Job Index");
-
+        return Job::all();
     }
 
+    public function show(Job $job)
+    {
+        return $job;
+    }
     /**
      * Store a newly created resource in storage.
      */

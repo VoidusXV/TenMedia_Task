@@ -2,8 +2,10 @@ import React from "react";
 import { JobAd_Box, SearcherBox } from "./Dashboard_Designs";
 import styles from "./Dashboard.module.scss";
 import Container from "react-bootstrap/Container";
+import { UserData } from "../../constants/auth";
 
 const Dashboard = () => {
+    console.log(UserData);
     return (
         <div className={styles.DashboardContainer}>
             <div className={styles.TopContainer}>

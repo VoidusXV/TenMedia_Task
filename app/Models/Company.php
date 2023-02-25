@@ -10,6 +10,7 @@ class Company extends Model
     use HasFactory;
     protected $fillable = ["companyID", 'name', 'address', 'phoneNumber', 'email', 'password'];
     public $timestamps = false;
+    protected $primaryKey = 'companyID';
 
 
 }

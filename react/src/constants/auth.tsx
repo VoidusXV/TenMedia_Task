@@ -1,5 +1,15 @@
+declare type ISODateString = Date;
+
 interface IUserData {
-    UserID?: Number;
+    userID?: Number;
+    companyID?: Number;
+    firstname?: string;
+    surname?: string;
+    email?: string;
+    password?: string;
+    created_at?: ISODateString;
+    updated_at?: ISODateString;
+    remember_token?: string;
 }
 
 interface IUser {

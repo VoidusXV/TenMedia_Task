@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('jobs', function (Blueprint $table) {
 
-            $table->integer("jobId", true);
+            $table->integer("jobID", true);
             $table->string("companyID");
             $table->string("title");
             $table->integer("salary");

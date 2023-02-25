@@ -3,8 +3,9 @@
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+//    ['prefix' => 'v1', 'middleware' => ['auth:sanctum']],
 
 Route::group(
     ['prefix' => 'v1'],
