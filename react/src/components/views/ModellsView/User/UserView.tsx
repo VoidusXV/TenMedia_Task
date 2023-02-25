@@ -8,6 +8,7 @@ interface IUserView {
     surname?: string;
     email?: string;
     created_at?: Date;
+    onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 const UserView = ({
@@ -16,6 +17,7 @@ const UserView = ({
     surname,
     email,
     created_at,
+    onClick,
 }: IUserView) => {
     console.log(new Date("2023-02-25T01:26:34.000000Z").toUTCString());
 
@@ -28,7 +30,7 @@ const UserView = ({
     }, []);
 
     return (
-        <div className={styles.UserView_BoxContainer}>
+        <div onClick={onClick} className={styles.UserView_BoxContainer}>
             <b className={styles.UserView_BoxTitle}>
                 Employee of: {getCompanyName}
             </b>

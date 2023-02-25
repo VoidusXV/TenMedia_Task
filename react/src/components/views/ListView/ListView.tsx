@@ -10,8 +10,19 @@ import { onFetchModell } from "../../../hooks/FetchHooks";
 import JobView from "../ModellsView/Job/JobView";
 import CompanyView from "../ModellsView/Company/CompanyView";
 import UserView from "../ModellsView/User/UserView";
+import { useNavigate } from "react-router-dom";
 
-const SelectedListModellView = ({ FetchedData, SelectedModell }: any) => {
+interface ISelectedListModellView {
+    FetchedData: Array<any>;
+    SelectedModell: number;
+    onClick?: any;
+}
+
+const SelectedListModellView = ({
+    FetchedData,
+    SelectedModell,
+    onClick,
+}: ISelectedListModellView) => {
     return (
         <>
             {FetchedData.map((e: any, i: any) => (
@@ -24,6 +35,7 @@ const SelectedListModellView = ({ FetchedData, SelectedModell }: any) => {
                             firstname={e.firstname}
                             email={e.email}
                             created_at={e.created_at}
+                            onClick={(event) => onClick && onClick(event, e)}
                         ></UserView>
                     )}
                     {SelectedModell == Modells.Company && (
@@ -33,6 +45,7 @@ const SelectedListModellView = ({ FetchedData, SelectedModell }: any) => {
                             address={e.address}
                             email={e.email}
                             phoneNumber={e.phoneNumber}
+                            onClick={(event) => onClick && onClick(event, e)}
                         ></CompanyView>
                     )}
                     {SelectedModell == Modells.Job && (
@@ -40,6 +53,7 @@ const SelectedListModellView = ({ FetchedData, SelectedModell }: any) => {
                             key={i}
                             Title={e.title}
                             Description={e.description}
+                            onClick={(event) => onClick && onClick(event, e)}
                         ></JobView>
                     )}
                 </>
@@ -49,6 +63,7 @@ const SelectedListModellView = ({ FetchedData, SelectedModell }: any) => {
 };
 
 const ListView = ({ SelectedModell }: { SelectedModell: number }) => {
+    const navigate = useNavigate();
     const [isLoading, setLoading] = useState(true);
     const FetchedData: any = onFetchModell(
         SelectedModell,
@@ -61,6 +76,10 @@ const ListView = ({ SelectedModell }: { SelectedModell: number }) => {
                 <SelectedListModellView
                     FetchedData={FetchedData}
                     SelectedModell={SelectedModell}
+                    onClick={(event: any, modelldata: any) => {
+                        // console.log(modelldata);
+                        navigate("/details-view");
+                    }}
                 ></SelectedListModellView>
             )}
         </>

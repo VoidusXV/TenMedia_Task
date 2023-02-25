@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { onLogin } from "./pages/Login/Login_Functions";
 import { AuthContext } from "./constants/auth";
+import DetailsView from "./components/views/CreateEditView/CreateEditView";
 
 function App() {
     // console.log("Launch Website");
@@ -35,8 +36,8 @@ function App() {
                                 element={<LoginPage />}
                             ></Route>
                             <Route
-                                path="/detail-jobad"
-                                element={<LoginPage />}
+                                path="/details-view"
+                                element={<DetailsView />}
                             ></Route>
                         </Routes>
                     </div>

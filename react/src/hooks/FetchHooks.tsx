@@ -18,7 +18,6 @@ function onFetchModell<T>(
     const [getData, setData] = useState<Array<T>>([]);
 
     const apiEndpoint = getAPIEndpoint(Modell);
-    console.log(apiEndpoint);
     if (!apiEndpoint) throw "apiEndpoint is undefinded";
 
     useEffect(() => {
