@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { NavTopColor } from "../../../constants/Colors";
 import styles from "../DetailsView/DetailsViewStyles.module.scss";
+import { getFilteredData, getViewText } from "./DetailsView_Function";
 
 interface IDetailsContainer {
     Title?: string;
@@ -20,31 +21,23 @@ const DetailsContainer = ({ Title, Content }: IDetailsContainer) => {
     );
 };
 
-function getFilteredData(ModellData: Array<any>) {
-    let data: Array<any> = [];
-    const keys = Object.keys(ModellData);
-    for (let index = 0; index < keys.length; index++) {
-        const key = keys[index].toLowerCase();
-        const value = Object.values(ModellData)[index];
-
-        if (!key.includes("id") && !key.includes("token"))
-            data.push({ key, value });
-    }
-
-    return data;
-}
-
 const DetailsView = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
+    const SelectedModell: Number = state?.SelectedModell;
+
     const ModellData: Array<any> = state?.ModellData;
     const FilteredData = getFilteredData(ModellData);
 
+    const ViewText = getViewText(SelectedModell);
     return (
         <div className={styles.DetailsViewContainer}>
+            <a style={{ color: "white", fontSize: 25, marginTop: 10 }}>
+                {ViewText}
+            </a>
             <div className={styles.EditContainer}>
                 <Button
-                    onClick={() => navigate("/manage-view")}
+                    onClick={() => navigate("/manage-view?state=edit")}
                     style={{
                         backgroundColor: NavTopColor,
                         borderColor: "#ffffff40",

@@ -4,10 +4,10 @@ import Form from "react-bootstrap/Form";
 import ListView from "../../components/views/ListView/ListView";
 import { Button } from "react-bootstrap";
 import { Modells, ViewStyles } from "../../constants/Global_Interfaces";
-
-//TODO: Add ViewStyles changer
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+    const navigate = useNavigate();
     const [getModell, setModell] = useState(0);
     return (
         <div className={styles.DashboardContainer}>
@@ -25,6 +25,11 @@ const Dashboard = () => {
                 </Form.Select>
 
                 <Button
+                    onClick={() =>
+                        navigate(
+                            `/manage-view?state=create&modell=${getModell}`
+                        )
+                    }
                     style={{
                         marginTop: 20,
                         width: 200,
@@ -36,10 +41,6 @@ const Dashboard = () => {
                 </Button>
             </div>
             <div className={styles.JobAd_ViewContainer}>
-                {/* {getModell == ViewStyles.Undefined && <a>Select a Modell</a>}
-
-                {getModell == ViewStyles.ListView && <ListView></ListView>} */}
-
                 <ListView SelectedModell={getModell}></ListView>
             </div>
         </div>
