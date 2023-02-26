@@ -8,6 +8,7 @@ interface IDetailsContainer {
     Title?: string;
     Content?: string;
 }
+
 const DetailsContainer = ({ Title, Content }: IDetailsContainer) => {
     return (
         <div className={styles.DetailsContainer}>
@@ -37,7 +38,14 @@ const DetailsView = () => {
             </a>
             <div className={styles.EditContainer}>
                 <Button
-                    onClick={() => navigate("/manage-view?state=edit")}
+                    onClick={() => {
+                        const url = `/manage-view?state=edit&?modell=${SelectedModell}`;
+                        const state = {
+                            state: { ModellData: ModellData },
+                        };
+
+                        navigate(url, state);
+                    }}
                     style={{
                         backgroundColor: NavTopColor,
                         borderColor: "#ffffff40",
@@ -63,3 +71,4 @@ const DetailsView = () => {
 };
 
 export default DetailsView;
+export type { IDetailsContainer };

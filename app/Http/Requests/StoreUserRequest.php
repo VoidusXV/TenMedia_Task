@@ -39,7 +39,7 @@ class StoreUserRequest extends FormRequest
             'password' => [
                 'required',
                 'min:8',
-                'max:20'
+                'max:100'
             ],
         ];
     }

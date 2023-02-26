@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
-use App\Models\Company;
 use App\Helpers\DatabaseHelper;
 
 class UserController extends Controller
@@ -15,7 +14,6 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
-
     }
 
     /**
@@ -29,5 +27,11 @@ class UserController extends Controller
         User::create($request->validated());
         return response()->json("User created");
 
+    }
+
+    public function update(StoreUserRequest $request, User $user)
+    {
+        $user->update($request->validated());
+        return response()->json("User updated");
     }
 }

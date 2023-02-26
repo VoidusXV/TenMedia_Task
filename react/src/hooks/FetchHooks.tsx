@@ -37,4 +37,4 @@ function onFetchModell<T>(
     return getData;
 }
 
-export { onFetchModell };
+export { onFetchModell, getAPIEndpoint };

@@ -31,5 +31,9 @@ class JobController extends Controller
         Job::create($request->validated());
         return response()->json("Job created");
     }
-
+    public function update(StoreJobRequest $request, Job $job)
+    {
+        $job->update($request->validated());
+        return response()->json("Job updated");
+    }
 }

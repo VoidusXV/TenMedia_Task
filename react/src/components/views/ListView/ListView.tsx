@@ -20,7 +20,7 @@ const SelectedListModellView = ({
     return (
         <>
             {FetchedData.map((e: any, i: any) => (
-                <>
+                <div key={i}>
                     {SelectedModell == Modells.User && (
                         <UserView
                             key={i}
@@ -50,7 +50,7 @@ const SelectedListModellView = ({
                             onClick={(event) => onClick && onClick(event, e)}
                         ></JobView>
                     )}
-                </>
+                </div>
             ))}
         </>
     );
