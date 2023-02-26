@@ -4,7 +4,9 @@
 - [Beschreibung](#beschreibung)
 - [Aufgabe 1](#aufgabe-1)
 - [Optionale Aufgaben](#optionale-aufgaben)
+- [Mögliche Bugs](#mögliche-bugs)
 - [Hinweis](#hinweis)
+
 
 
 ## Beschreibung
@@ -42,7 +44,12 @@ Mit dieser Anwendung lassen sich Stellenanzeigen anzeigen und verwalten.
 
 Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung (SPA) benutzt und zusätzlich noch Unit-Tests hinzufgefügt.
 
+## Mögliche Bugs
+  
+Die Unit-Test Response bei den Controllern **User und Jobs** für die Requests POST, PUT, DELETE geben 422 zurück (erwartet 200).
+Wenn **'use RefreshDatabase'** auskommentiert wird, funktioniert alles außer POST und das **nur** für User & Jobs.
+
 ## Hinweis
-Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein privater Github Account ist und VS-Code es nicht hinbekommen hat mich abzumelden.
+Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein **privater Github-Account** ist und VS-Code es nicht hinbekommen hat, mich abzumelden.
 
 
