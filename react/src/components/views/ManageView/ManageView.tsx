@@ -185,6 +185,74 @@ const ManageCompanyView = ({
     );
 };
 
+const ManageUserView = ({
+    onChange,
+    ModellData,
+}: {
+    onChange: any;
+    ModellData: any;
+}) => {
+    const [getUserData, setUserData] = useState({
+        companyID: 1,
+        firstname: ModellData?.firstname,
+        surname: ModellData?.surname,
+        email: ModellData?.email,
+        password: ModellData?.password,
+    });
+
+    useEffect(() => {
+        onChange && onChange(getUserData);
+    }, [getUserData]);
+
+    return (
+        <div
+            className={styles.ManageJobView}
+            style={{ backgroundColor: NavTopColor }}
+        >
+            <ManageDetailsContainer
+                TextValue={getUserData?.firstname}
+                Title="Firstname"
+                onChange={(e: any) =>
+                    setUserData({
+                        ...getUserData,
+                        firstname: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+            <ManageDetailsContainer
+                TextValue={getUserData?.surname}
+                Title="Surname"
+                onChange={(e: any) =>
+                    setUserData({
+                        ...getUserData,
+                        surname: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+            <ManageDetailsContainer
+                TextValue={getUserData?.email}
+                Title="Email"
+                onChange={(e: any) =>
+                    setUserData({
+                        ...getUserData,
+                        email: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+            <ManageDetailsContainer
+                TextValue={getUserData?.password}
+                Title="Password"
+                onChange={(e: any) =>
+                    setUserData({
+                        ...getUserData,
+                        password: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+        </div>
+    );
+};
+
 const ManageView = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
@@ -217,10 +285,10 @@ const ManageView = () => {
             )}
 
             {SelectedModell == Modells.User && (
-                <ManageCompanyView
+                <ManageUserView
                     ModellData={ModellData}
                     onChange={(e: any) => setPayload(e)}
-                ></ManageCompanyView>
+                ></ManageUserView>
             )}
 
             <SubmitContainer
