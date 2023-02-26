@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Helpers\DatabaseHelper;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -24,7 +26,14 @@ class UserController extends Controller
         if (!DatabaseHelper::companyExists($request))
             return response()->json("Company doesnt exist", 422);
 
-        User::create($request->validated());
+
+        $data = $request->validated();
+        $data["password"] = Hash::make($data["password"]);
+        $data["remember_token"] = Str::uuid();
+
+        //dd($data);
+
+        User::create($data);
         return response()->json("User created");
 
     }
