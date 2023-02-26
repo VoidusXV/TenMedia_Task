@@ -2,14 +2,12 @@
 
 ## Inhalt
 - [Beschreibung](#beschreibung).
-- [Aufgabe 1](#aufgabe).
+- [Aufgabe 1](#aufgabe-1).
 - [Installation](#33).
 
 
 ## Beschreibung
 Test
-
-## Aufgabe
 
 ### Aufgabe 1
 - Welche Seiten hat die Anwendung?  
@@ -35,4 +33,5 @@ Test
 
 
 - Welche Beziehung haben die Modelle zueinander
+
 ![ERM Modell](https://user-images.githubusercontent.com/117258295/221420873-a54e805b-25ed-4ee2-8f0d-291db9b875b2.png)
