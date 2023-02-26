@@ -43,6 +43,6 @@ Mit dieser Anwendung lassen sich Stellenanzeigen anzeigen und verwalten.
 Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung (SPA) benutzt und zusätzlich noch Unit-Tests hinzufgefügt.
 
 ## Hinweis
-Mit wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein privater Github Account ist und VS-Code es nicht hinbekommen hat mich abzumelden.
+Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein privater Github Account ist und VS-Code es nicht hinbekommen hat mich abzumelden.
 
 
