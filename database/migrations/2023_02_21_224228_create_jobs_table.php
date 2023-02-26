@@ -13,11 +13,11 @@ return new class extends Migration {
         Schema::create('jobs', function (Blueprint $table) {
 
             $table->integer("jobID", true);
-            $table->string("companyID");
-            $table->string("title");
-            $table->integer("salary");
-            $table->string("description");
-            $table->string("location");
+            $table->string("companyID")->default("1");
+            $table->string("title")->default("Anwendungsentwickler");
+            $table->integer("salary")->default(900);
+            $table->string("description")->default("Description Default");
+            $table->string("location")->default("Berlin");
 
         });
     }

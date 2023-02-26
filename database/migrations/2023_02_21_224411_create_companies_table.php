@@ -12,10 +12,11 @@ return new class extends Migration {
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->integer("companyID", true);
-            $table->string("name");
-            $table->string("address");
-            $table->string("phoneNumber");
-            $table->string("email");
+            $table->string("name")->default("CompanyName");
+            $table->string("address")->default("CompanyAddress");
+            $table->string("phoneNumber")->default("01761234567");
+            $table->string("email")->default("test@email.com");
+            ;
         });
     }
 
