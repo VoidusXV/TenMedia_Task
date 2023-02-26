@@ -4,8 +4,7 @@
 - [Beschreibung](#beschreibung)
 - [Aufgabe 1](#aufgabe-1)
 - [Optionale Aufgaben](#optionale-aufgaben)
-- [Mögliche Bugs](#mögliche-bugs)
-- [Hinweis](#hinweis)
+- [Hinweise](#hinweise)
 
 
 
@@ -44,12 +43,12 @@ Mit dieser Anwendung lassen sich Stellenanzeigen anzeigen und verwalten.
 
 Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung (SPA) benutzt und zusätzlich noch Unit-Tests hinzufgefügt.
 
-## Mögliche Bugs
-  
-Die Unit-Test Response bei den Controllern **User und Jobs** für die Requests POST, PUT, DELETE geben 422 zurück (erwartet 200).
-Wenn **'use RefreshDatabase'** auskommentiert wird, funktioniert alles außer POST und das **nur** für User & Jobs.
 
-## Hinweis
-Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein **privater Github-Account** ist und VS-Code es nicht hinbekommen hat, mich abzumelden.
+## Hinweise
+- Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein **privater Github-Account** ist und VS-Code trotz meiner Abmeldungsversuche, die Commits von meinem privaten Account aus hochgeladen hat.
 
+- Der PUT-Request wird in den Unit-Tests für die Controller **User und Job** nicht funktionieren, da eine Abfrage überprüft, ob eine Company existiert. Da in der Test-Datenbank nie eine Company existiert, wird es nicht funktionieren. Diese Abfragen muss man auskommentieren
+
+User: https://github.com/VoidusXV/TenMedia_Task/blob/3a6ef7c38a4d5c1a209228cd1756f5939b8bf3a7/app/Http/Controllers/UserController.php#L26
+Job: https://github.com/VoidusXV/TenMedia_Task/blob/3a6ef7c38a4d5c1a209228cd1756f5939b8bf3a7/app/Http/Controllers/JobController.php#L28
 
