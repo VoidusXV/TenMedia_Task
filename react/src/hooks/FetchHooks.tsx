@@ -10,6 +10,19 @@ function getAPIEndpoint(Modell: Modells) {
     return undefined;
 }
 
+function getControllerEndpoint(Modell: Number, ModellData: any) {
+    if (Modell == Modells.Job) return ModellData.jobID;
+    if (Modell == Modells.Company) return ModellData.companyID;
+    if (Modell == Modells.User) return ModellData.userID;
+}
+
+function getAPIControllerEndpoint(Modell: any, ModellData: any) {
+    return `${getAPIEndpoint(Modell)}/${getControllerEndpoint(
+        Modell,
+        ModellData
+    )}`;
+}
+
 function onFetchModell<T>(
     Modell: Modells,
     onLoading?: any,
@@ -37,4 +50,9 @@ function onFetchModell<T>(
     return getData;
 }
 
-export { onFetchModell, getAPIEndpoint };
+export {
+    onFetchModell,
+    getAPIEndpoint,
+    getControllerEndpoint,
+    getAPIControllerEndpoint,
+};

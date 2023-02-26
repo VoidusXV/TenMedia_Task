@@ -19,11 +19,8 @@ const UserView = ({
     created_at,
     onClick,
 }: IUserView) => {
-    console.log(new Date("2023-02-25T01:26:34.000000Z").toUTCString());
-
     const [getCompanyName, setCompanyName] = useState("");
     useEffect(() => {
-        console.log(companyID);
         api.get(`http://localhost:8000/api/v1/companies/${companyID}`).then(
             (resp) => setCompanyName(resp?.data?.name)
         );

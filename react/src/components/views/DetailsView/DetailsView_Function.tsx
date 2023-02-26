@@ -1,3 +1,4 @@
+import api from "../../../backend/axios";
 import { Modells } from "../../../constants/Global_Interfaces";
 
 function getFilteredData(ModellData: Array<any>) {
@@ -20,4 +21,15 @@ function getViewText(SelectedModell: Number) {
     if (SelectedModell == Modells.User) return "User-View";
 }
 
-export { getFilteredData, getViewText };
+async function onDelete(APIEndpoint: string) {
+    try {
+        console.log("onDelete APIEndpoint:", APIEndpoint);
+        const response = await api.delete(APIEndpoint);
+        console.log(response.data);
+    } catch (e: any) {
+        alert(`Error: ${e.message}`);
+        console.log("onDelete", e.message);
+    }
+}
+
+export { getFilteredData, getViewText, onDelete };

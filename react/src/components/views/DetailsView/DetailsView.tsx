@@ -1,8 +1,14 @@
 import { Button } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import { NavTopColor } from "../../../constants/Colors";
+import {
+    getAPIControllerEndpoint,
+    getAPIEndpoint,
+    getControllerEndpoint,
+} from "../../../hooks/FetchHooks";
+import CustomButton from "../../CustomDesigns/CustomButton";
 import styles from "../DetailsView/DetailsViewStyles.module.scss";
-import { getFilteredData, getViewText } from "./DetailsView_Function";
+import { getFilteredData, getViewText, onDelete } from "./DetailsView_Function";
 
 interface IDetailsContainer {
     Title?: string;
@@ -25,7 +31,7 @@ const DetailsContainer = ({ Title, Content }: IDetailsContainer) => {
 const DetailsView = () => {
     const { state } = useLocation();
     const navigate = useNavigate();
-    const SelectedModell: Number = state?.SelectedModell;
+    const SelectedModell = state?.SelectedModell;
 
     const ModellData: Array<any> = state?.ModellData;
     const FilteredData = getFilteredData(ModellData);
@@ -37,7 +43,8 @@ const DetailsView = () => {
                 {ViewText}
             </a>
             <div className={styles.EditContainer}>
-                <Button
+                <CustomButton
+                    Title="Edit"
                     onClick={() => {
                         const url = `/manage-view?state=edit&modell=${SelectedModell}`;
                         const state = {
@@ -47,12 +54,20 @@ const DetailsView = () => {
                         navigate(url, state);
                     }}
                     style={{
-                        backgroundColor: NavTopColor,
-                        borderColor: "#ffffff40",
+                        marginRight: 20,
                     }}
-                >
-                    Edit
-                </Button>
+                ></CustomButton>
+                <CustomButton
+                    Title="Delete"
+                    onClick={async () => {
+                        const apiEndpoint = getAPIControllerEndpoint(
+                            SelectedModell,
+                            ModellData
+                        );
+                        await onDelete(apiEndpoint);
+                        navigate("/");
+                    }}
+                ></CustomButton>
             </div>
             <div
                 className={styles.JobDetailsViewContainer}

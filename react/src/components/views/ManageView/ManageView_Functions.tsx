@@ -1,12 +1,8 @@
 import api from "../../../backend/axios";
-import { Modells } from "../../../constants/Global_Interfaces";
-import { getAPIEndpoint } from "../../../hooks/FetchHooks";
-
-function getUpdateEndpoint(Modell: Number, ModellData: any) {
-    if (Modell == Modells.Job) return ModellData.jobID;
-    if (Modell == Modells.Company) return ModellData.companyID;
-    if (Modell == Modells.User) return ModellData.userID;
-}
+import {
+    getAPIControllerEndpoint,
+    getAPIEndpoint,
+} from "../../../hooks/FetchHooks";
 
 async function onUpdate(
     navigate: any,
@@ -15,10 +11,7 @@ async function onUpdate(
     ModellData: any
 ) {
     try {
-        const apiEndpoint = `${getAPIEndpoint(Modell)}/${getUpdateEndpoint(
-            Modell,
-            ModellData
-        )}`;
+        const apiEndpoint = getAPIControllerEndpoint(Modell, ModellData);
 
         if (!apiEndpoint) throw "apiEndpoint is undefinded";
 
@@ -27,6 +20,7 @@ async function onUpdate(
         console.log(response.data);
         navigate("/");
     } catch (e: any) {
+        alert(`Error: ${e.message}`);
         console.log("onUpdate:", e.message);
     }
 }
@@ -43,6 +37,7 @@ async function onCreate(navigate: any, Modell: any, Payload: any) {
         console.log(response.data);
         navigate("/");
     } catch (e: any) {
+        alert(`Error: ${e.message}`);
         console.log("onCreate:", e.message);
     }
 }
