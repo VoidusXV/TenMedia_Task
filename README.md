@@ -1,13 +1,15 @@
-##TenMedia Case Study
+## TenMedia Case Study
 
 ## Inhalt
-- [Beschreibung](#beschreibung).
-- [Aufgabe 1](#aufgabe-1).
-- [Installation](#33).
+- [Beschreibung](#beschreibung)
+- [Aufgabe 1](#aufgabe-1)
+- [Optionale Aufgaben](#optionale-aufgaben)
+- [Hinweis](#hinweis)
 
 
 ## Beschreibung
-Test
+Dieses Projekt ist eine browserbasierte Anwendung, die mithilfe von Laravel und Sanctum das Backend sowie mit Typescript und React das Frontend programmiert wurde.
+Mit dieser Anwendung lassen sich Stellenanzeigen anzeigen und verwalten.
 
 ### Aufgabe 1
 - Welche Seiten hat die Anwendung?  
@@ -35,3 +37,12 @@ Test
 - Welche Beziehung haben die Modelle zueinander
 
 ![ERM Modell](https://user-images.githubusercontent.com/117258295/221420873-a54e805b-25ed-4ee2-8f0d-291db9b875b2.png)
+
+## Optionale Aufgaben
+
+Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung (SPA) benutzt und zusätzlich noch Unit-Tests hinzufgefügt.
+
+## Hinweise
+Mit wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein privater Github Account ist und VS-Code es nicht hinbekommen hat mich abzumelden.
+
+
