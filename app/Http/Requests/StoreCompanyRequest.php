@@ -37,11 +37,6 @@ class StoreCompanyRequest extends FormRequest
             'email' => [
                 'required',
             ],
-            'password' => [
-                'required',
-                'min:8',
-                'max:20'
-            ],
         ];
     }
 }

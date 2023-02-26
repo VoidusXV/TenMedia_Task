@@ -9,6 +9,7 @@ import CustomButton from "../../CustomDesigns/CustomButton";
 import { ISubmitContainer } from "./ManageViewInterfaces";
 import { getAPIEndpoint } from "../../../hooks/FetchHooks";
 import { Modells } from "../../../constants/Global_Interfaces";
+import { onUpdate } from "./ManageView_Functions";
 
 interface IManageDetailsContainer {
     Title?: string;
@@ -60,35 +61,6 @@ function onCreate() {
             console.log(e);
         });
     }, []);
-}
-
-function getUpdateEndpoint(Modell: Number, ModellData: any) {
-    if (Modell == Modells.Job) return ModellData.jobID;
-    if (Modell == Modells.Company) return ModellData.companyID;
-    if (Modell == Modells.User) return ModellData.userID;
-}
-
-async function onUpdate(
-    navigate: any,
-    Modell: any,
-    Payload: any,
-    ModellData: any
-) {
-    try {
-        const apiEndpoint = `${getAPIEndpoint(Modell)}/${getUpdateEndpoint(
-            Modell,
-            ModellData
-        )}`;
-
-        if (!apiEndpoint) throw "apiEndpoint is undefinded";
-
-        console.log(apiEndpoint, Payload);
-        const response = await api.put(apiEndpoint, Payload);
-        console.log(response.data);
-        navigate("/");
-    } catch (e: any) {
-        console.log("onUpdate:", e.message);
-    }
 }
 
 const ManageJobView = ({
@@ -146,6 +118,72 @@ const ManageJobView = ({
         </div>
     );
 };
+const ManageCompanyView = ({
+    onChange,
+    ModellData,
+}: {
+    onChange: any;
+    ModellData: any;
+}) => {
+    const [getCompanyData, setCompanyData] = useState({
+        name: ModellData?.name,
+        address: ModellData?.address,
+        phoneNumber: ModellData?.phoneNumber,
+        email: ModellData?.email,
+    });
+
+    useEffect(() => {
+        onChange && onChange(getCompanyData);
+    }, [getCompanyData]);
+
+    return (
+        <div
+            className={styles.ManageJobView}
+            style={{ backgroundColor: NavTopColor }}
+        >
+            <ManageDetailsContainer
+                TextValue={getCompanyData?.name}
+                Title="Name"
+                onChange={(e: any) =>
+                    setCompanyData({
+                        ...getCompanyData,
+                        name: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+            <ManageDetailsContainer
+                TextValue={getCompanyData?.address}
+                Title="Address"
+                onChange={(e: any) =>
+                    setCompanyData({
+                        ...getCompanyData,
+                        address: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+            <ManageDetailsContainer
+                TextValue={getCompanyData?.phoneNumber}
+                Title="Phone Number"
+                onChange={(e: any) =>
+                    setCompanyData({
+                        ...getCompanyData,
+                        phoneNumber: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+            <ManageDetailsContainer
+                TextValue={getCompanyData?.email}
+                Title="Email"
+                onChange={(e: any) =>
+                    setCompanyData({
+                        ...getCompanyData,
+                        email: e?.target?.value,
+                    })
+                }
+            ></ManageDetailsContainer>
+        </div>
+    );
+};
 
 const ManageView = () => {
     const { state } = useLocation();
@@ -158,17 +196,33 @@ const ManageView = () => {
 
     const [getPayload, setPayload] = useState({});
 
-    console.log();
     // console.log(getPayload);
     return (
         <div className={styles.ManageViewContainer}>
             <a style={{ color: "white", fontSize: 25, marginTop: 10 }}>
                 {ViewText}
             </a>
-            <ManageJobView
-                ModellData={ModellData}
-                onChange={(e: any) => setPayload(e)}
-            ></ManageJobView>
+            {SelectedModell == Modells.Job && (
+                <ManageJobView
+                    ModellData={ModellData}
+                    onChange={(e: any) => setPayload(e)}
+                ></ManageJobView>
+            )}
+
+            {SelectedModell == Modells.Company && (
+                <ManageCompanyView
+                    ModellData={ModellData}
+                    onChange={(e: any) => setPayload(e)}
+                ></ManageCompanyView>
+            )}
+
+            {SelectedModell == Modells.User && (
+                <ManageCompanyView
+                    ModellData={ModellData}
+                    onChange={(e: any) => setPayload(e)}
+                ></ManageCompanyView>
+            )}
+
             <SubmitContainer
                 onCancel={() => navigate("../")}
                 onUpdate={async () =>
