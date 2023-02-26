@@ -27,8 +27,6 @@ class StoreUserRequest extends FormRequest
             ],
             'firstname' => [
                 'required',
-                'min:3',
-                'max:20'
             ],
             'surname' => [
                 'required',
@@ -38,8 +36,6 @@ class StoreUserRequest extends FormRequest
             ],
             'password' => [
                 'required',
-                'min:8',
-                'max:100'
             ],
         ];
     }

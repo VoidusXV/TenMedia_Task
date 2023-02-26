@@ -31,8 +31,6 @@ class StoreCompanyRequest extends FormRequest
             ],
             'phoneNumber' => [
                 'required',
-                'min:8',
-                'max:20'
             ],
             'email' => [
                 'required',

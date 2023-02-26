@@ -39,7 +39,7 @@ const DetailsView = () => {
             <div className={styles.EditContainer}>
                 <Button
                     onClick={() => {
-                        const url = `/manage-view?state=edit&?modell=${SelectedModell}`;
+                        const url = `/manage-view?state=edit&modell=${SelectedModell}`;
                         const state = {
                             state: { ModellData: ModellData },
                         };

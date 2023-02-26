@@ -30,5 +30,22 @@ async function onUpdate(
         console.log("onUpdate:", e.message);
     }
 }
+async function onCreate(navigate: any, Modell: any, Payload: any) {
+    // await api.post("/api/v1/jobs", Payload);
 
-export { onUpdate };
+    try {
+        const apiEndpoint = getAPIEndpoint(Modell);
+        if (!apiEndpoint) throw "apiEndpoint is undefinded";
+
+        console.log("apiEndpoint", apiEndpoint);
+        console.log("onCreate", Payload);
+
+        const response = await api.post(apiEndpoint, Payload);
+        console.log(response.data);
+        navigate("/");
+    } catch (e: any) {
+        console.log("onCreate:", e.message);
+    }
+}
+
+export { onUpdate, onCreate };
