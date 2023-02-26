@@ -45,7 +45,7 @@ Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung (SPA) benut
 
 
 ## Hinweise
-- Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil names "HIDE1" kommen. Da das mein **privater Github-Account** ist und VS-Code trotz meiner Abmeldungsversuche, die Commits von meinem privaten Account aus hochgeladen hat.
+- Bitte wundern Sie sich nicht dass alle Commits & Pushes (außer README) von einem Profil namens "HIDE1" kommen. Da das mein **privater Github-Account** ist und VS-Code trotz meiner Abmeldungsversuche, die Commits von meinem privaten Account aus hochgeladen hat.
 
 - Der PUT-Request wird in den Unit-Tests für die Controller **User und Job** nicht funktionieren, da eine Abfrage überprüft, ob eine Company existiert. Da in der Test-Datenbank nie eine Company existiert, wird es nicht funktionieren. Diese Abfragen muss man auskommentieren
 
