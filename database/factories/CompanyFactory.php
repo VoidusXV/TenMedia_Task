@@ -17,7 +17,10 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'address' => fake()->address(),
+            'phoneNumber' => fake()->phoneNumber(),
+            'email' => fake()->email()
         ];
     }
 }
