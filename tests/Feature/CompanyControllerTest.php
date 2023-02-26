@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class CompanyControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    // use RefreshDatabase;
     public function test_get_request_company(): void
     {
         $company = Company::factory()->create();

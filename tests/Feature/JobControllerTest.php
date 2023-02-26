@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class JobControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    // use RefreshDatabase;
     public function test_get_request_jobs(): void
     {
         $job = Job::factory()->create();
@@ -26,8 +26,8 @@ class JobControllerTest extends TestCase
             "location" => "Berlin"
         ];
 
-        $user = Job::factory()->create();
-        $response = $this->actingAs($user)->post('/api/v1/jobs', $payload);
+        $job = Job::factory()->create();
+        $response = $this->actingAs($job)->post('/api/v1/jobs', $payload);
         $response->assertStatus(200);
     }
 
