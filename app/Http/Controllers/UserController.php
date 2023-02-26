@@ -43,4 +43,11 @@ class UserController extends Controller
         $user->update($request->validated());
         return response()->json("User updated");
     }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return response()->json("User destroyed");
+
+    }
 }

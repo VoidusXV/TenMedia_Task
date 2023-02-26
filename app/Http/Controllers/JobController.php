@@ -36,4 +36,9 @@ class JobController extends Controller
         $job->update($request->validated());
         return response()->json("Job updated");
     }
+    public function destroy(Job $job)
+    {
+        $job->delete();
+        return response()->json("Job destroyed");
+    }
 }

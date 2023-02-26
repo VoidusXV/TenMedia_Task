@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
+import { companyID } from "../../../constants/auth";
 import { NavTopColor } from "../../../constants/Colors";
 import CustomButton from "../../CustomDesigns/CustomButton";
 import styles from "../ManageView/ManageViewStyles.module.scss";
@@ -55,7 +56,7 @@ const ManageJobView = ({
     ModellData: any;
 }) => {
     const [getJobData, setJobData] = useState({
-        companyID: ModellData?.companyID ?? 1,
+        companyID: ModellData?.companyID ?? companyID,
         title: ModellData?.title,
         salary: ModellData?.salary,
         description: ModellData?.description,
@@ -178,7 +179,7 @@ const ManageUserView = ({
     ModellData: any;
 }) => {
     const [getUserData, setUserData] = useState({
-        companyID: 1,
+        companyID: companyID,
         firstname: ModellData?.firstname,
         surname: ModellData?.surname,
         email: ModellData?.email,

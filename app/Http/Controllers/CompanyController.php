@@ -36,4 +36,9 @@ class CompanyController extends Controller
         $company->update($request->validated());
         return response()->json("Company updated");
     }
+    public function destroy(Company $company)
+    {
+        $company->delete();
+        return response()->json("Company destroyed");
+    }
 }
