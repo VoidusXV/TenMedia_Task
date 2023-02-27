@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Route;
 //  ['prefix' => 'v1']
 
 Route::group(
-    // ['prefix' => 'v1', 'middleware' => ['auth:sanctum']],
-    ['prefix' => 'v1'],
+    ['prefix' => 'v1', 'middleware' => ['auth:sanctum']],
     function () {
         Route::apiResource('users', UserController::class);
         Route::apiResource('companies', CompanyController::class);
