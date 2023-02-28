@@ -41,7 +41,7 @@ Mit dieser Anwendung lassen sich Stellenanzeigen anzeigen und verwalten.
 
 ## Optionale Aufgaben
 
-Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung (SPA) benutzt und zusätzlich noch Unit-Tests hinzufgefügt.
+Als optionale Aufgaben habe ich eine Tokenbasierte-Authentifizierung benutzt und zusätzlich noch Unit-Tests hinzufgefügt.
 
 
 ## Hinweise
